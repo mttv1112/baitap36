@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập TK7 - Tạo chuỗi ngẫu nhiên</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Bài tập TK7: Tạo chuỗi ngẫu nhiên</h2>
+        <button onclick="generatePassword()">Tạo Mật Khẩu (8 ký tự)</button>
+        <p>Kết quả: <strong id="result">-</strong></p>
+        <br><p><a href="bt36.html">&larr; Quay lại trang chủ</a></p>
+    </div>
+    <script>
+        function generatePassword() {
+            const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+            let pass = "";
+            for (let i = 0; i < 8; i++) {
+                pass += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById("result").innerText = pass;
+        }
+    </script>
+</body>
+</html>

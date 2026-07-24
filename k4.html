@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập K4 - Phân Trang</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .pagination button { margin: 2px; padding: 5px 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bài tập K4: Phân Trang Danh Sách (50 mục)</h2>
+        <ul id="itemList"></ul>
+        <div class="pagination" id="pagination"></div>
+        <br><p><a href="bt36.html">&larr; Quay lại trang chủ</a></p>
+    </div>
+    <script>
+        const items = Array.from({length: 50}, (_, i) => `Mục số ${i + 1}`);
+        const perPage = 10;
+        let currentPage = 1;
+
+        function displayList() {
+            const listEl = document.getElementById("itemList");
+            listEl.innerHTML = "";
+            let start = (currentPage - 1) * perPage;
+            let end = start + perPage;
+            let paginatedItems = items.slice(start, end);
+            
+            paginatedItems.forEach(item => {
+                let li = document.createElement("li");
+                li.innerText = item;
+                listEl.appendChild(li);
+            });
+        }
+
+        function setupPagination() {
+            const pageEl = document.getElementById("pagination");
+            pageEl.innerHTML = "";
+            let pageCount = Math.ceil(items.length / perPage);
+            for (let i = 1; i <= pageCount; i++) {
+                let btn = document.createElement("button");
+                btn.innerText = i;
+                if (i === currentPage) btn.style.background = "#3498db", btn.style.color = "white";
+                btn.addEventListener("click", () => {
+                    currentPage = i;
+                    displayList();
+                    setupPagination();
+                });
+                pageEl.appendChild(btn);
+            }
+        }
+
+        displayList();
+        setupPagination();
+    </script>
+</body>
+</html>

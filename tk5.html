@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập TK5 - Accordion</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .accordion { background-color: #3498db; color: white; cursor: pointer; padding: 10px; width: 100%; border: none; text-align: left; outline: none; font-size: 16px; border-radius: 4px; margin-top: 10px; }
+        .panel { padding: 0 15px; background-color: white; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; border-left: 2px solid #3498db; }
+        .panel.show { max-height: 150px; padding: 10px 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bài tập TK5: Accordion đơn giản</h2>
+        <button class="accordion" onclick="toggleAccordion()">Bấm để xem nội dung accordion</button>
+        <div class="panel" id="accPanel">
+            <p>Đây là nội dung ẩn của accordion. Khi bấm vào tiêu đề, nội dung sẽ trượt xuống/lên thông qua lớp CSS và Javascript classList.toggle().</p>
+        </div>
+        <br><p><a href="bt36.html">&larr; Quay lại trang chủ</a></p>
+    </div>
+    <script>
+        function toggleAccordion() {
+            document.getElementById("accPanel").classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập K6 - Sự kiện bàn phím</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #box { width: 60px; height: 60px; background: #e74c3c; position: relative; top: 0; border-radius: 6px; }
+        .arena { height: 200px; background: #ecf0f1; border: 1px dashed #bdc3c7; overflow: hidden; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bài tập K6: Xử Lý Sự Kiện Bàn Phím (Mũi tên Lên/Xuống)</h2>
+        <div class="arena">
+            <div id="box"></div>
+        </div>
+        <p>Hãy bấm phím mũi tên LÊN hoặc XUỐNG trên bàn phím để di chuyển khối màu đỏ.</p>
+        <br><p><a href="bt36.html">&larr; Quay lại trang chủ</a></p>
+    </div>
+    <script>
+        let pos = 0;
+        const box = document.getElementById("box");
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowUp") {
+                pos = Math.max(0, pos - 10);
+                box.style.top = pos + "px";
+            } else if (e.key === "ArrowDown") {
+                pos = Math.min(140, pos + 10);
+                box.style.top = pos + "px";
+            }
+        });
+    </script>
+</body>
+</html>

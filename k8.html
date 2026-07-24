@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>K8</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>K8 - Tính BMI</h2>
+
+<input id="kg" placeholder="Cân nặng (kg)">
+
+<input id="m" placeholder="Chiều cao (m)">
+
+<button onclick="tinh()">Tính</button>
+
+<h3 id="kq"></h3>
+
+</div>
+
+<script>
+
+function tinh(){
+
+let kg=parseFloat(document.getElementById("kg").value);
+
+let m=parseFloat(document.getElementById("m").value);
+
+let bmi=kg/(m*m);
+
+let loai="";
+
+if(bmi<18.5)
+loai="Thiếu cân";
+
+else if(bmi<25)
+loai="Bình thường";
+
+else
+loai="Thừa cân";
+
+document.getElementById("kq").innerHTML=
+"BMI = "+bmi.toFixed(2)+"<br>"+loai;
+
+}
+
+</script>
+
+</body>
+</html>
